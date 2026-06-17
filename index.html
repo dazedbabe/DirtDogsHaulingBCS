@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dirt Dogs Hauling - Dump Trailer Rental, Bryan / College Station, TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14111a;
+    --surface: #1c1722;
+    --border: #322a3c;
+    --purple: #4b2e6b;
+    --purple-light: #8f6bb3;
+    --green: #1f5c3f;
+    --green-light: #8fd9b4;
+    --cream: #f5f0e8;
+    --text: #c9c2d1;
+    --text-dim: #8a8390;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--cream);
+  }
+
+  .brand span {
+    color: var(--green-light);
+  }
+
+  .topbar-links {
+    display: flex;
+    gap: 18px;
+  }
+
+  .topbar-links a {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .topbar-links a:hover { color: var(--green-light); }
+
+  /* HERO */
+  .hero {
+    background: var(--purple);
+    border-bottom: 4px solid var(--green);
+    padding: 48px 32px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '\1F69B';
+    font-size: 180px;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    opacity: 0.08;
+    line-height: 1;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--green);
+    color: #e7f7ee;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 7vw, 64px);
+    line-height: 0.95;
+    color: var(--cream);
+  }
+
+  .hero h1 span {
+    color: var(--green-light);
+  }
+
+  .hero-sub {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #e3d9ec;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  .hero-contact {
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn-primary {
+    background: var(--green-light);
+    color: #0d2b1d;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 2px solid #6e4f8f;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--green-light);
+    color: var(--green-light);
+  }
+
+  /* SECTION */
+  section {
+    padding: 48px 32px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--green-light);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(26px, 5vw, 38px);
+    color: var(--cream);
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+
+  /* PRICING CARDS */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .price-card {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 20px;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .price-card:hover {
+    border-color: var(--green-light);
+    transform: translateY(-3px);
+  }
+
+  .price-card.featured {
+    border-color: var(--green);
+    background: #10231a;
+  }
+
+  .price-card.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: #e7f7ee;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .price-duration {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .price-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 46px;
+    color: var(--green-light);
+    line-height: 1;
+  }
+
+  .price-amount sup {
+    font-size: 20px;
+    vertical-align: top;
+    margin-top: 6px;
+    display: inline-block;
+  }
+
+  .price-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  .booking-line {
+    font-size: 13px;
+    color: var(--text);
+    margin-top: 12px;
+  }
+
+  .booking-line strong { color: var(--cream); }
+
+  /* DETAILS */
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 560px) {
+    .details-grid { grid-template-columns: 1fr; }
+  }
+
+  .detail-block {
+    background: var(--surface);
+    border-left: 3px solid var(--green);
+    padding: 20px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .detail-block h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--green-light);
+    margin-bottom: 10px;
+  }
+
+  .detail-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .detail-block ul li {
+    font-size: 14px;
+    color: var(--text);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .detail-block ul li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--green-light);
+    font-size: 12px;
+  }
+
+  .detail-block ul li.no::before {
+    content: '\2715';
+    color: #d97a7a;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 32px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    margin-top: 16px;
+  }
+
+  footer a {
+    color: var(--green-light);
+    text-decoration: none;
+  }
+
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">DIRT DOGS <span>HAULING</span></div>
+  <div class="topbar-links">
+    <a href="tel:9793679306">(979) 367-9306</a>
+    <a href="https://www.facebook.com/profile.php?id=61587209356722" target="_blank" rel="noopener">Facebook</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">Bryan / College Station, TX</div>
+  <h1>DUMP TRAILER<br><span>FOR RENT</span></h1>
+  <p class="hero-sub">Need to haul junk, debris, or materials? Rent our dump trailer by the day, weekend, or week from Dirt Dogs Hauling - no middleman, no delivery wait. You hook it up and go.</p>
+  <div class="hero-contact">
+    <a class="btn btn-primary" href="https://m.me/61587209356722" target="_blank" rel="noopener">Message to Book</a>
+    <a class="btn btn-outline" href="tel:9793679306">Call / Text (979) 367-9306</a>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section>
+  <div class="section-label">PRICING</div>
+  <div class="section-title">Simple, Flat-Rate Rental</div>
+
+  <div class="pricing-grid">
+    <div class="price-card featured">
+      <div class="price-duration">FULL DAY</div>
+      <div class="price-amount"><sup>$</sup>95</div>
+      <div class="price-note">Up to 24 hours</div>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">2 DAYS</div>
+      <div class="price-amount"><sup>$</sup>175</div>
+      <div class="price-note">48 hours</div>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">WEEKEND</div>
+      <div class="price-amount"><sup>$</sup>225</div>
+      <div class="price-note">Fri-Mon pickup</div>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">FULL WEEK</div>
+      <div class="price-amount"><sup>$</sup>335</div>
+      <div class="price-note">7 days</div>
+    </div>
+  </div>
+
+  <p class="booking-line">A <strong>$25 non-refundable booking fee</strong> is due to reserve your date. A <strong>$100-$150 refundable deposit</strong> is also due at pickup. Cash, Venmo, Cash App, or PayPal accepted.</p>
+</section>
+
+<hr class="divider">
+
+<!-- WHAT'S INCLUDED -->
+<section>
+  <div class="section-label">DETAILS</div>
+  <div class="section-title">What You Need to Know</div>
+
+  <div class="details-grid">
+    <div class="detail-block">
+      <h3>What's Included</h3>
+      <ul>
+        <li>Full use of the dump trailer</li>
+        <li>Same-day booking available</li>
+        <li>Local pickup in Bryan, TX</li>
+        <li>Flexible scheduling</li>
+        <li>Fast, friendly communication</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <h3>Great For</h3>
+      <ul>
+        <li>Home cleanouts & junk removal</li>
+        <li>Landscaping debris & brush</li>
+        <li>Construction & renovation waste</li>
+        <li>Moving unwanted furniture</li>
+        <li>Yard waste & dirt removal</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <h3>Requirements</h3>
+      <ul>
+        <li>Valid driver's license required</li>
+        <li>Must have a capable tow vehicle</li>
+        <li>$25 non-refundable booking fee to reserve</li>
+        <li>Refundable deposit at pickup</li>
+        <li>Simple rental agreement to sign</li>
+      </ul>
+    </div>
+    <div class="detail-block">
+      <h3>Not Allowed</h3>
+      <ul>
+        <li class="no">Hazardous materials or chemicals</li>
+        <li class="no">Paint, oil, or liquids</li>
+        <li class="no">Tires</li>
+        <li class="no">Concrete (call to ask)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Dirt Dogs Hauling &middot; Bryan, TX &middot; (979) 367-9306 &middot; <a href="https://www.facebook.com/profile.php?id=61587209356722" target="_blank" rel="noopener">Facebook</a>
+</footer>
+
+</body>
+</html>
